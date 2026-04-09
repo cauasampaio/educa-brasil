@@ -1,0 +1,7 @@
+.bg-scroll-1 {
+    background-image: url('../images/bg-image-mobile.png');
+    background-size: cover;      
+    background-position: center;  
+    background-repeat: no-repeat;
+    background-color: #333333; /* Fallback de segurança */
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educar para Transformar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/styles/style.css">
+
+</head>
+<body class="font-sans antialiased text-gray-900 bg-gray-100">
+
+    <header id="main-header" class="fixed top-0 left-0 w-full z-40 px-4 py-5 bg-transparent transition-all duration-300 flex justify-between items-center">
+        <a href="#" class="block w-10 h-10"></a>
+        <button id="menu-open-btn" class="focus:outline-none p-2">
+            <svg id="hamburger-icon" class="w-8 h-8 text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+
+    <div id="sidebar-menu" class="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-black/90 backdrop-blur-md z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
+        
+        <div class="flex justify-between items-center p-6 border-b border-gray-700">
+            <h5 class="text-brand-yellow text-xl font-bold">Menu</h5>
+            <button id="menu-close-btn" class="text-white hover:text-gray-300 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="flex flex-col gap-6 p-6 mt-4 text-xl font-bold">
+            <a href="#" class="text-brand-yellow">Início</a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">Conheça a Causa</a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">Como Ajudar</a>
+        </nav>
+    </div>
+
+    <section class="bg-scroll-1 min-h-screen flex flex-col justify-around text-center px-4 pb-10 pt-24 gap-16">
+        
+        <div class="flex flex-col gap-4 text-white font-light text-[22px] md:text-2xl">
+            <h1 class="text-brand-yellow font-bold m-0 text-4xl">Educação é Direito</h1>
+            <h1 class="font-bold m-0 text-3xl">Transformação é Urgente</h1>
+            <p class="mt-2 text-lg">
+                Milhões de crianças brasileiras ainda estão fora da escola. 
+                Juntos, podemos mudar essa realidade e construir um Brasil mais 
+                justo e desenvolvido.
+            </p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row justify-center items-center gap-5">
+            <a href="#" class="bg-brand-orange hover:bg-brand-orange-hover text-white w-3/4 md:w-auto md:px-12 py-4 rounded-full shadow-md flex justify-center items-center font-bold transition-all duration-300">
+                Saiba Como Ajudar
+            </a>        
+            <a href="#" class="bg-brand-orange hover:bg-brand-orange-hover text-white w-3/4 md:w-auto md:px-12 py-4 rounded-full shadow-md flex justify-center items-center font-bold transition-all duration-300">
+                Conheça a Causa
+            </a>
+        </div>
+
+        <div class="flex flex-col justify-center items-center w-[100%]">
+            <a href="" class="text-white hover:text-brand-orange-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="min-h-screen bg-[#F8F9FA] flex flex-col items-center py-12 px-4 w-full">
+    
+    <div class="flex flex-col justify-center items-center gap-4 max-w-md mb-8">
+        <h5 class="text-brand-green font-bold text-xl text-center">A Realidade da Educação no Brasil</h5>
+        <p class="text-gray-500 text-center text-sm md:text-base leading-relaxed">
+            A desigualdade educacional não é apenas um número. Por trás de cada estatística há histórias 
+            de crianças que poderiam estar transformando suas vidas através da educação.
+        </p>
+    </div>
+
+    <div class="flex flex-col gap-4 w-full max-w-sm">
+        <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+            <h6 class="contador text-brand-green text-5xl font-extrabold mb-1" data-target="993" data-suffix="mil" data-decimal="false">0mil</h6>
+            <p class="text-[#1A365D] font-bold text-sm leading-tight max-w-[200px]">Crianças entre 4 e 17 anos fora da escola</p>
+        </div>
+
+        <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+            <h6 class="contador text-brand-green text-5xl font-extrabold mb-1" data-target="9.1" data-suffix="M" data-decimal="true">0M</h6>
+            <p class="text-[#1A365D] font-bold text-sm leading-tight max-w-[200px]">Crianças entre 7 e 14 anos fora da escola</p>
+        </div>
+
+        <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+            <h6 class="contador text-brand-green text-5xl font-extrabold mb-1" data-target="4.2" data-suffix="M" data-decimal="true">0M</h6>
+            <p class="text-[#1A365D] font-bold text-sm leading-tight max-w-[200px]">Crianças entre 7 e 14 anos fora da escola</p>
+        </div>
+
+        <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+            <h6 class="contador text-brand-green text-5xl font-extrabold mb-1" data-target="5.3" data-suffix="%" data-decimal="true">0%</h6>
+            <p class="text-[#1A365D] font-bold text-sm leading-tight max-w-[200px]">Crianças entre 7 e 14 anos fora da escola</p>
+        </div>
+
+    </div>
+    </section>
+    <section class="h-screen bg-gray-300"></section>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
