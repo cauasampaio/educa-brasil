@@ -5,3 +5,8 @@
     background-repeat: no-repeat;
     background-color: #333333; /* Fallback de segurança */
 }
+
+/* Efeito de corte transversal para a Seção 3 */
+.corte-diagonal {
+    clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 100%);
+}
