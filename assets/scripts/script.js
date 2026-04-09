@@ -8,12 +8,14 @@ tailwind.config = {
             colors: {
                 brand: {
                     white: '#FFFF',
-                    yellow: '#EEFF00',
+                    yellow: '#F4C430',
                     orange: '#DF6836',
                     'orange-hover': '#c5572b',
                     gray: '#666666',
                     green: '#1B5E3F',
                     salmon: '#F5E6D3',
+                    purple: "",
+                    blue: "#003366"
                 }
             }
         }
