@@ -117,3 +117,96 @@ const observerContador = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.contador').forEach(contador => {
     observerContador.observe(contador);
 });
+
+// ==========================================
+// 3. LÓGICA DO CARROSSEL DE VÍDEOS
+// ==========================================
+
+const track = document.getElementById('carousel-track');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const dots = document.querySelectorAll('.dot');
+
+const autoplayBtn = document.getElementById('autoplay-btn');
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
+const autoplayText = document.getElementById('autoplay-text');
+
+let currentSlide = 0;
+const totalSlides = 2; // Como temos 2 vídeos
+let isPlaying = false;
+let autoplayInterval;
+
+// Função para mover o carrossel e atualizar as bolinhas
+function updateCarousel() {
+    // Move o eixo X do trilho
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    // Atualiza as classes das bolinhas
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.remove('w-2.5', 'bg-gray-300');
+            dot.classList.add('w-8', 'bg-brand-green'); // Estica a bolinha ativa e deixa verde
+        } else {
+            dot.classList.remove('w-8', 'bg-brand-green');
+            dot.classList.add('w-2.5', 'bg-gray-300'); // Encolhe as inativas e deixa cinza
+        }
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
+// Reseta o temporizador para o carrossel não pular logo depois que o usuário clicar
+function resetAutoplay() {
+    if (isPlaying) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextSlide, 4000); // Passa a cada 4 segundos
+    }
+}
+
+// Botão de Play / Pause
+function toggleAutoplay() {
+    if (isPlaying) {
+        // Ação: Pausar
+        clearInterval(autoplayInterval);
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+        autoplayText.innerText = 'Reproduzir';
+    } else {
+        // Ação: Iniciar Reprodução
+        autoplayInterval = setInterval(nextSlide, 4000); // Mudar slide a cada 4 segundos
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+        autoplayText.innerText = 'Pausar';
+    }
+    isPlaying = !isPlaying;
+}
+
+// Eventos de Clique
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoplay();
+});
+
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoplay();
+});
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+        resetAutoplay();
+    });
+});
+
+autoplayBtn.addEventListener('click', toggleAutoplay);
