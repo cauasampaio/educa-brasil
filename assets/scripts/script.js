@@ -210,3 +210,41 @@ dots.forEach((dot, index) => {
 });
 
 autoplayBtn.addEventListener('click', toggleAutoplay);
+
+const form = document.getElementById('contact-form');
+
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    let isValid = true;
+    
+    // Pega todos os campos que têm a classe 'input-field'
+    const inputs = contactForm.querySelectorAll('.input-field');
+
+    inputs.forEach(input => {
+        const errorSpan = input.nextElementSibling; // Pega o span que vem logo depois do input
+
+        // Se o campo estiver vazio ou o email for inválido (validação nativa do navegador)
+        if (!input.checkValidity()) {
+            input.classList.add('border-red-500');
+            errorSpan.classList.remove('hidden');
+            isValid = false;
+        } else {
+            input.classList.remove('border-red-500');
+            errorSpan.classList.add('hidden');
+        }
+    });
+
+    // Se algum campo falhou, trava o envio
+    if (!isValid) {
+        e.preventDefault();
+    }
+});
+
+// Extra: Remove o erro enquanto o usuário digita
+contactForm.querySelectorAll('.input-field').forEach(input => {
+    input.addEventListener('input', () => {
+        input.classList.remove('border-red-500');
+        input.nextElementSibling.classList.add('hidden');
+    });
+});
