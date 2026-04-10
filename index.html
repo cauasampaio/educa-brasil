@@ -6,55 +6,152 @@
     <title>Educa Brasil</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            white: '#FFFFFF',
+            yellow: '#F4C430',
+            orange: '#DF6836',
+            'orange-hover': '#c5572b',
+            gray: '#666666',
+            green: '#1B5E3F',
+            salmon: '#F5E6D3',
+            purple: "#7B2CBF",
+            blue: "#003366"
+          }
+        }
+      }
+    }
+  }
+</script>
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body class="font-sans antialiased text-gray-900 bg-gray-100">
 
-    <header id="main-header" class="fixed top-0 left-0 w-full z-40 px-4 py-5 bg-transparent transition-all duration-300 flex justify-between items-center">
-        <a href="#" class="block w-10 h-10"></a>
-        <button id="menu-open-btn" class="focus:outline-none p-2">
-            <svg id="hamburger-icon" class="w-8 h-8 text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
+    <header class="fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-brand-white dark:bg-[#0F172A] shadow-md">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-green dark:bg-[#F97316] rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">E</span>
+                </div>
+                <span class="font-bold text-xl text-brand-blue dark:text-white uppercase tracking-tight">Educa Brasil</span>
+            </div>
+
+            <ul class="hidden lg:flex items-center gap-8">
+                <li><a href="#problema" class="font-medium text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-colors">O Problema</a></li>
+                <li><a href="#importa" class="font-medium text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-colors">O Que Importa</a></li>
+                <li><a href="#ongs" class="font-medium text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-colors">ONGs</a></li>
+                <li><a href="#ajudar" class="font-medium text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-colors">Como Ajudar</a></li>
+                <li><a href="#contato" class="px-5 py-2 bg-brand-green dark:bg-[#F97316] text-white rounded-full font-bold hover:opacity-90 transition-all">Contato</a></li>
+                
+                <li>
+                    <button id="theme-toggle-desktop" class="p-2 rounded-lg bg-gray-100 dark:bg-[#1E293B] text-gray-600 dark:text-yellow-400 hover:ring-2 ring-orange-500 transition-all">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="flex items-center gap-4 lg:hidden">
+                <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-gray-100 dark:bg-[#1E293B] text-gray-600 dark:text-yellow-400">
+                    <svg class="theme-icon-mobile w-5 h-5" fill="currentColor" viewBox="0 0 20 20"></svg>
+                </button>
+                
+                <button id="menu-btn" class="text-brand-blue dark:text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-[#0F172A] border-t dark:border-gray-800 shadow-xl">
+            <ul class="flex flex-col p-6 gap-4">
+                <li><a href="#problema" class="block font-bold text-brand-blue dark:text-gray-300">O Problema</a></li>
+                <li><a href="#importa" class="block font-bold text-brand-blue dark:text-gray-300">O Que Importa</a></li>
+                <li><a href="#ongs" class="block font-bold text-brand-blue dark:text-gray-300">ONGs</a></li>
+                <li><a href="#ajudar" class="block font-bold text-brand-blue dark:text-gray-300">Como Ajudar</a></li>
+                <li><a href="#contato" class="block font-bold text-[#F97316]">Contato</a></li>
+            </ul>
+        </div>
     </header>
     
-    <div id="sidebar-menu" class="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-black/90 backdrop-blur-md z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
-        <div class="flex justify-between items-center p-6 border-b border-gray-700">
-            <h5 class="text-brand-yellow text-xl font-bold">Menu</h5>
-            <button id="menu-close-btn" class="text-white hover:text-gray-300 focus:outline-none">
+    <div id="sidebar-menu" class="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-brand-white dark:bg-[#0F172A] backdrop-blur-md z-[60] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col lg:hidden">
+    
+        <div class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-800">
+            <h5 class="text-brand-blue dark:text-[#F97316] text-xl font-bold uppercase tracking-widest">Menu</h5>
+            <button id="menu-close-btn" class="text-brand-blue dark:text-white hover:opacity-70 focus:outline-none transition-all">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-        <nav class="flex flex-col gap-6 p-6 mt-4 text-xl font-bold">
-            <a href="#" class="text-brand-yellow">Início</a>
-            <a href="#" class="text-white hover:text-gray-300 transition-colors">Conheça a Causa</a>
-            <a href="#" class="text-white hover:text-gray-300 transition-colors">Como Ajudar</a>
+        <nav class="flex flex-col gap-8 p-8 mt-4 text-lg font-bold">
+            <a href="#problema" class="text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-all flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand-green dark:bg-[#F97316]"></span>
+                O Problema
+            </a>
+            <a href="#importa" class="text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-all flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand-green dark:bg-[#F97316]"></span>
+                O Que Importa
+            </a>
+            <a href="#ongs" class="text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-all flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand-green dark:bg-[#F97316]"></span>
+                ONGs
+            </a>
+            <a href="#ajudar" class="text-gray-600 dark:text-gray-300 hover:text-brand-green dark:hover:text-[#F97316] transition-all flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-brand-green dark:bg-[#F97316]"></span>
+                Como Ajudar
+            </a>
+            
+            <hr class="border-gray-200 dark:border-gray-800 my-2">
+
+            <a href="#contato" class="text-center bg-brand-green dark:bg-[#F97316] text-white py-4 rounded-xl shadow-lg hover:scale-[1.02] active:scale-95 transition-all">
+                Fale Conosco
+            </a>
         </nav>
+
+        <div class="mt-auto p-8 opacity-50 text-xs text-brand-blue dark:text-white text-center">
+                Educa Brasil © 2026
+        </div>
     </div>
+
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden lg:hidden transition-opacity duration-300"></div>
+
     <!--Scroll 1-->
-    <section class="bg-scroll-1 min-h-screen flex flex-col justify-around text-center px-4 pb-10 pt-24 gap-16">
-        <div class="flex flex-col gap-4 text-white font-light text-[22px] md:text-2xl">
-            <h1 class="text-brand-yellow font-bold m-0 text-4xl">Educação é Direito</h1>
-            <h1 class="font-bold m-0 text-3xl">Transformação é Urgente</h1>
-            <p class="mt-2 text-lg">
+    <section class="relative min-h-screen flex flex-col justify-around text-center px-4 pb-10 pt-24 gap-16 overflow-hidden bg-scroll-1 dark:bg-none transition-colors duration-300">
+        <div class="absolute inset-0 bg-black/40 dark:bg-[#0F172A]/80 z-0"></div>
+
+        <div class="relative z-10 flex flex-col gap-4 text-white font-light text-[22px] md:text-2xl">
+            <h1 class="text-brand-yellow dark:text-[#F97316] font-bold m-0 text-4xl md:text-6xl drop-shadow-lg">
+                Educação é Direito
+            </h1>
+            <h2 class="font-bold m-0 text-3xl md:text-5xl text-white drop-shadow-md">
+                Transformação é Urgente
+            </h2>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto opacity-90">
                 Milhões de crianças brasileiras ainda estão fora da escola. 
                 Juntos, podemos mudar essa realidade e construir um Brasil mais 
                 justo e desenvolvido.
             </p>
         </div>
-        <div class="flex flex-col md:flex-row justify-center items-center gap-5">
-            <a href="#" class="bg-brand-orange hover:bg-brand-orange-hover text-white w-3/4 md:w-auto md:px-12 py-4 rounded-full shadow-md flex justify-center items-center font-bold transition-all duration-300">
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-center items-center gap-5">
+            <a href="#ajudar" class="bg-transparent dark:bg-[#F97316] border-2 border-brand-orange hover:scale-105 hover:text-brand-blue hover:bg-brand-orange active:scale-95 text-white w-3/4 md:w-auto md:px-12 py-4 rounded-full shadow-xl flex justify-center items-center font-bold transition-all duration-300">
                 Saiba Como Ajudar
             </a>        
-            <a href="#" class="bg-brand-orange hover:bg-brand-orange-hover text-white w-3/4 md:w-auto md:px-12 py-4 rounded-full shadow-md flex justify-center items-center font-bold transition-all duration-300">
+            <a href="#problema" class="bg-transparent text-brand-white border-2 border-white dark:border-[#F97316] hover:bg-white hover:scale-105 hover:text-brand-blue dark:hover:bg-[#F97316] dark:hover:text-white w-3/4 md:w-auto md:px-12 py-4 rounded-full shadow-md flex justify-center items-center font-bold transition-all duration-300">
                 Conheça a Causa
             </a>
         </div>
-        <div class="flex flex-col justify-center items-center w-full">
-            <a href="" class="text-white hover:text-brand-orange-hover">
+
+        <div class="relative z-10 flex flex-col justify-center items-center w-full animate-bounce">
+            <a href="#problema" class="text-white dark:text-[#F97316] hover:opacity-70 transition-opacity">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
@@ -62,194 +159,194 @@
         </div>
     </section>
     <!--Scroll 2-->
-    <section class="bg-[#D9D9D9]/12 flex flex-col items-center justify-start py-16 px-4 w-full gap-4">
+    <section id="problema" class="bg-[#D9D9D9]/12 dark:bg-[#0F172A] flex flex-col items-center justify-start py-16 px-4 w-full gap-4 transition-colors duration-300">
         <div class="flex flex-col justify-center items-center gap-4 max-w-2xl mb-12">
-            <h5 class="text-brand-green font-bold text-2xl md:text-3xl text-center">A Realidade da Educação no Brasil</h5>
-            <p class="text-gray-500 text-center text-sm md:text-lg leading-relaxed">
+            <h5 class="text-brand-green dark:text-[#F97316] font-bold text-2xl md:text-3xl text-center">A Realidade da Educação no Brasil</h5>
+            <p class="text-gray-500 dark:text-gray-400 text-center text-sm md:text-lg leading-relaxed">
                 A desigualdade educacional não é apenas um número. Por trás de cada estatística há histórias 
                 de crianças que poderiam estar transformando suas vidas através da educação.
             </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mx-auto">            
-            <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
-                <h6 class="contador text-brand-green text-5xl font-extrabold mb-2" data-target="993" data-suffix="mil" data-decimal="false">0mil</h6>
-                <p class="text-[#1A365D] font-bold text-sm leading-tight">Crianças entre 4 e 17 anos fora da escola</p>
+            <div class="bg-[#F5E6D3] dark:bg-[#1E293B] border border-[#E8D4BE] dark:border-gray-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+                <h6 class="contador text-brand-green dark:text-[#F97316] text-5xl font-extrabold mb-2" data-target="993" data-suffix="mil" data-decimal="false">0mil</h6>
+                <p class="text-[#1A365D] dark:text-gray-300 font-bold text-sm leading-tight">Crianças entre 4 e 17 anos fora da escola</p>
             </div>
-            <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
-                <h6 class="contador text-brand-green text-5xl font-extrabold mb-2" data-target="9.1" data-suffix="M" data-decimal="true">0M</h6>
-                <p class="text-[#1A365D] font-bold text-sm leading-tight">Crianças entre 7 e 14 anos fora da escola</p>
+            <div class="bg-[#F5E6D3] dark:bg-[#1E293B] border border-[#E8D4BE] dark:border-gray-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+                <h6 class="contador text-brand-green dark:text-[#F97316] text-5xl font-extrabold mb-2" data-target="9.1" data-suffix="M" data-decimal="true">0M</h6>
+                <p class="text-[#1A365D] dark:text-gray-300 font-bold text-sm leading-tight">Crianças entre 7 e 14 anos fora da escola</p>
             </div>
-            <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
-                <h6 class="contador text-brand-green text-5xl font-extrabold mb-2" data-target="4.2" data-suffix="M" data-decimal="true">0M</h6>
-                <p class="text-[#1A365D] font-bold text-sm leading-tight">Crianças entre 7 e 14 anos fora da escola</p>
+            <div class="bg-[#F5E6D3] dark:bg-[#1E293B] border border-[#E8D4BE] dark:border-gray-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+                <h6 class="contador text-brand-green dark:text-[#F97316] text-5xl font-extrabold mb-2" data-target="4.2" data-suffix="M" data-decimal="true">0M</h6>
+                <p class="text-[#1A365D] dark:text-gray-300 font-bold text-sm leading-tight">Crianças entre 7 e 14 anos fora da escola</p>
             </div>
-            <div class="bg-[#F5E6D3] border border-[#E8D4BE] rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
-                <h6 class="contador text-brand-green text-5xl font-extrabold mb-2" data-target="5.3" data-suffix="%" data-decimal="true">0%</h6>
-                <p class="text-[#1A365D] font-bold text-sm leading-tight">Crianças entre 7 e 14 anos fora da escola</p>
+            <div class="bg-[#F5E6D3] dark:bg-[#1E293B] border border-[#E8D4BE] dark:border-gray-700 rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm">
+                <h6 class="contador text-brand-green dark:text-[#F97316] text-5xl font-extrabold mb-2" data-target="5.3" data-suffix="%" data-decimal="true">0%</h6>
+                <p class="text-[#1A365D] dark:text-gray-300 font-bold text-sm leading-tight">Crianças entre 7 e 14 anos fora da escola</p>
             </div>
         </div>
-        <div class="bg-brand-green w-full p-8 rounded-2xl max-w-6xl mt-8">
+        <div class="bg-brand-green dark:bg-[#F97316] w-full p-8 rounded-2xl max-w-6xl mt-8 transition-colors">
             <p class="text-brand-white"><span class="text-brand-white font-bold">A educação é o caminho mais direto</span> para quebrar ciclos de pobreza e construir oportunidades iguais para todos. Quando uma criança tem acesso a educação de qualidade, não apenas sua vida muda – toda sua comunidade é transformada.</p>
         </div>
     </section>
     <!--Scroll 3-->
-    <section class="bg-[#F8F9FA] flex flex-col items-center justify-start py-12 px-4 w-full gap-2">
+    <section id="importa" class="bg-[#F8F9FA] dark:bg-[#0F172A] flex flex-col items-center justify-start py-12 px-4 w-full gap-2 transition-colors duration-300">
         <div class="flex flex-col justify-center items-center gap-4 max-w-2xl mb-12">
-            <h5 class="text-brand-green font-bold text-2xl md:text-3xl text-center">Educação Transforma Vidas</h5>
-            <p class="text-gray-500 text-center text-sm md:text-lg leading-relaxed">
+            <h5 class="text-brand-green dark:text-[#F97316] font-bold text-2xl md:text-3xl text-center">Educação Transforma Vidas</h5>
+            <p class="text-gray-500 dark:text-gray-400 text-center text-sm md:text-lg leading-relaxed">
                 Conheça três pilares fundamentais que guiam nossa campanha pela educação nacional.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
             
-           <div class="flex flex-col justify-start p-6 bg-brand-salmon gap-4 rounded-2xl border border-[#E8D4BE] shadow-[-8px_0_0_0] shadow-brand-orange">
+           <div class="flex flex-col justify-start p-6 bg-brand-salmon dark:bg-[#1E293B] gap-4 rounded-2xl border border-[#E8D4BE] dark:border-gray-700 shadow-[-8px_0_0_0] shadow-brand-orange">
                 <div class="bg-brand-orange p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Acesso Para Todos</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">Garantir que qualquer criança, independente da sua origem socioeconômica, tenha acesso a uma educação de qualidade é fundamental. Educação não deve ser privilégio.</p>
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Acesso Para Todos</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Garantir que qualquer criança, independente da sua origem socioeconômica, tenha acesso a uma educação de qualidade é fundamental. Educação não deve ser privilégio.</p>
                 </div>
             </div>
 
-            <div class="flex flex-col justify-start p-6 bg-brand-salmon gap-4 rounded-2xl border border-[#E8D4BE] shadow-[-8px_0_0_0] shadow-brand-yellow">
-                <div class="bg-brand-yellow p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
+            <div class="flex flex-col justify-start p-6 bg-brand-salmon dark:bg-[#1E293B] gap-4 rounded-2xl border border-[#E8D4BE] dark:border-gray-700 shadow-[-8px_0_0_0] shadow-brand-yellow dark:shadow-[#F97316]">
+                <div class="bg-brand-yellow dark:bg-[#F97316] p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Aprendizagem Adequada</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">Não basta estar na escola. É necessário que o ensino seja de qualidade, engajador e prepare os estudantes para os desafios do mundo contemporâneo.</p>
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Aprendizagem Adequada</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Não basta estar na escola. É necessário que o ensino seja de qualidade, engajador e prepare os estudantes para os desafios do mundo contemporâneo.</p>
                 </div>
             </div>
             
-            <div class="flex flex-col justify-start p-6 bg-brand-salmon gap-4 rounded-2xl border border-[#E8D4BE] shadow-[-8px_0_0_0] shadow-brand-green">
-                <div class="bg-brand-green p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
+            <div class="flex flex-col justify-start p-6 bg-brand-salmon dark:bg-[#1E293B] gap-4 rounded-2xl border border-[#E8D4BE] dark:border-gray-700 shadow-[-8px_0_0_0] shadow-brand-green dark:shadow-[#F97316]">
+                <div class="bg-brand-green dark:bg-[#F97316] p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                 </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Igualdade de Oportunidades</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">Reduzir as desigualdades entre ricos e pobres através da educação, garantindo que todos tenham as mesmas oportunidades de desenvolvimento.</p>
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Igualdade de Oportunidades</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Reduzir as desigualdades entre ricos e pobres através da educação, garantindo que todos tenham as mesmas oportunidades de desenvolvimento.</p>
                 </div>
             </div>
         </div>
         
-       <div class="w-full max-w-6xl mx-auto h-24 md:h-32 bg-[#969696]/40 mt-12" style="clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);"></div>
+       <div class="w-full max-w-6xl mx-auto h-24 md:h-32 bg-[#969696]/40 dark:bg-gray-800/40 mt-12" style="clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);"></div>
     </section>
     <!--Scroll 4-->
-    <section class="bg-brand-salmon flex flex-col items-center justify-start py-12 px-4 w-full">
+   <section id="ongs" class="bg-brand-salmon dark:bg-[#0F172A] flex flex-col items-center justify-start py-12 px-4 w-full transition-colors duration-300">
 
         <div class="flex flex-col justify-center items-center gap-4 max-w-2xl mb-12">
-            <h5 class="text-brand-green font-bold text-2xl md:text-3xl text-center">Quem Transforma a Educação Brasileira ?</h5>
-            <p class="text-gray-500 text-center text-sm md:text-lg leading-relaxed">
+            <h5 class="text-brand-green dark:text-[#F97316] font-bold text-2xl md:text-3xl text-center">Quem Transforma a Educação Brasileira ?</h5>
+            <p class="text-gray-500 dark:text-gray-400 text-center text-sm md:text-lg leading-relaxed">
                 Conheça as organizações que dedicam as suas vidas a transformação educacional.
             </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
 
-            <div class="flex flex-col justify-start p-6 bg-brand-white gap-4 rounded-2xl border border-[#E8D4BE] shadow-[0_-3px_0_0] shadow-brand-orange">
+            <div class="flex flex-col justify-start p-6 bg-brand-white dark:bg-[#1E293B] gap-4 rounded-2xl border border-[#E8D4BE] dark:border-gray-700 shadow-[0_-3px_0_0] shadow-brand-orange">
               
                 <div class="flex flex-col gap-3">
-                    <h5 class="font-bold text-brand-orange text-2xl">Todos pela educação</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">
+                    <h5 class="font-bold text-brand-orange dark:text-[#F97316] text-2xl">Todos pela educação</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         Transformar a educação pública é possível. Desde sua fundação, trabalha em advocacy, 
                         monitoramento de políticas e publicação de dados para guiar decisões que impactam milhões 
                         de crianças brasileiras.
                     </p>
-                    <p class="text-sm font-bold text-brand-blue mt-2">
+                    <p class="text-sm font-bold text-brand-blue dark:text-white mt-2">
                         Áreas de foco:
                     </p>                    
                     <div class="flex flex-col md:flex-row flex-wrap items-start gap-2">
                             
-                        <span class="text-xs bg-brand-orange px-4 py-1.5 rounded-full font-bold text-white w-fit">
+                        <span class="text-xs bg-brand-orange dark:bg-[#F97316] px-4 py-1.5 rounded-full font-bold text-white w-fit">
                             Ciência da implementação
                         </span>
                         
-                        <span class="text-xs bg-brand-orange px-4 py-1.5 rounded-full font-bold text-white w-fit">
+                        <span class="text-xs bg-brand-orange dark:bg-[#F97316] px-4 py-1.5 rounded-full font-bold text-white w-fit">
                             Plano nacional de educação
                         </span>
                         
-                        <span class="text-xs bg-brand-orange px-4 py-1.5 rounded-full font-bold text-white w-fit">
+                        <span class="text-xs bg-brand-orange dark:bg-[#F97316] px-4 py-1.5 rounded-full font-bold text-white w-fit">
                             Primeira infância
                         </span>
                         
                     </div>
-                    <a href="#" class="text-brand-orange text-sm font-bold mt-2 hover:underline transition-all">
+                    <a href="#" class="text-brand-orange dark:text-[#F97316] text-sm font-bold mt-2 hover:underline transition-all">
                         Conhecer Mais
                     </a>
                 </div>               
 
             </div>
 
-            <div class="flex flex-col justify-start p-6 bg-brand-white gap-4 rounded-2xl border border-[#E8D4BE] shadow-[0_-3px_0_0] shadow-brand-green">
+            <div class="flex flex-col justify-start p-6 bg-brand-white dark:bg-[#1E293B] gap-4 rounded-2xl border border-[#E8D4BE] dark:border-gray-700 shadow-[0_-3px_0_0] shadow-brand-green dark:shadow-[#F97316]">
                 <div class="flex flex-col gap-3">
-                    <h5 class="font-bold text-brand-green text-2xl">Fundação Lemann</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">
+                    <h5 class="font-bold text-brand-green dark:text-[#F97316] text-2xl">Fundação Lemann</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         Acreditando que pessoas que desenvolvem seu pleno potencial transformam o Brasil, investe em educação de qualidade, 
                         lideranças femininas e inovação tecnológica na educação.
                     </p>
-                    <p class="text-sm font-bold text-brand-blue mt-2">
+                    <p class="text-sm font-bold text-brand-blue dark:text-white mt-2">
                         Áreas de foco:
                     </p>                    
-                    <div class="flex flex-col md:flex-row flex-wrap items-start gap-2">                            
-                        <span class="text-xs bg-brand-green px-4 py-1.5 rounded-full font-bold text-white w-fit">
+                    <div class="flex flex-col md:flex-row flex-wrap items-start gap-2">                                
+                        <span class="text-xs bg-brand-green dark:bg-[#F97316] px-4 py-1.5 rounded-full font-bold text-white w-fit">
                             Aprendizagem adequada
                         </span>
                         
-                        <span class="text-xs bg-brand-green px-4 py-1.5 rounded-full font-bold text-white w-fit">
+                        <span class="text-xs bg-brand-green dark:bg-[#F97316] px-4 py-1.5 rounded-full font-bold text-white w-fit">
                             lideranças
                         </span>
                         
-                        <span class="text-xs bg-brand-green px-4 py-1.5 rounded-full font-bold text-white w-fit">
+                        <span class="text-xs bg-brand-green dark:bg-[#F97316] px-4 py-1.5 rounded-full font-bold text-white w-fit">
                             Inovação e Conectividade
                         </span>
                     </div>
-                    <a href="#" class="text-brand-green text-sm font-bold mt-2 hover:underline transition-all">
+                    <a href="#" class="text-brand-green dark:text-[#F97316] text-sm font-bold mt-2 hover:underline transition-all">
                         Conhecer Mais
                     </a>
                 </div>               
 
             </div>
 
-            <div class="col-span-1 md:col-span-2 flex flex-col p-6 md:p-8 bg-brand-white rounded-2xl border border-[#E8D4BE] shadow-sm mt-2">
+            <div class="col-span-1 md:col-span-2 flex flex-col p-6 md:p-8 bg-brand-white dark:bg-[#1E293B] rounded-2xl border border-[#E8D4BE] dark:border-gray-700 shadow-sm mt-2">
                     
-                    <h5 class="font-bold text-brand-blue text-2xl md:text-2xl mb-2">
+                    <h5 class="font-bold text-brand-blue dark:text-white text-2xl md:text-2xl mb-2">
                         Outras Organizações importantes:
                     </h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed mb-6">
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
                         Além dessas, existem outras organizações relevantes trabalhando incansavelmente pela educação brasileira:
                     </p>
 
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                         
-                        <div class="bg-brand-salmon text-brand-green font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] transition-colors cursor-pointer">
+                        <div class="bg-brand-salmon dark:bg-[#0F172A] text-brand-green dark:text-[#F97316] font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] dark:hover:bg-gray-800 transition-colors cursor-pointer border dark:border-gray-700">
                             <p>Avante</p>
                         </div>
                         
-                        <div class="bg-brand-salmon text-brand-green font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] transition-colors cursor-pointer">
+                        <div class="bg-brand-salmon dark:bg-[#0F172A] text-brand-green dark:text-[#F97316] font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] dark:hover:bg-gray-800 transition-colors cursor-pointer border dark:border-gray-700">
                             <p>ChildFund Brasil</p>
                         </div>
                         
-                        <div class="bg-brand-salmon text-brand-green font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] transition-colors cursor-pointer">
+                        <div class="bg-brand-salmon dark:bg-[#0F172A] text-brand-green dark:text-[#F97316] font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] dark:hover:bg-gray-800 transition-colors cursor-pointer border dark:border-gray-700">
                             <p>FASE</p>
                         </div>
                         
-                        <div class="bg-brand-salmon text-brand-green font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] transition-colors cursor-pointer">
+                        <div class="bg-brand-salmon dark:bg-[#0F172A] text-brand-green dark:text-[#F97316] font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] dark:hover:bg-gray-800 transition-colors cursor-pointer border dark:border-gray-700">
                             <p>Rede Emancipa</p>
                         </div>
                         
-                        <div class="bg-brand-salmon text-brand-green font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] transition-colors cursor-pointer">
+                        <div class="bg-brand-salmon dark:bg-[#0F172A] text-brand-green dark:text-[#F97316] font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] dark:hover:bg-gray-800 transition-colors cursor-pointer border dark:border-gray-700">
                             <p>Instituto 5 Elementos</p>
                         </div>
                         
-                        <div class="bg-brand-salmon text-brand-green font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] transition-colors cursor-pointer">
+                        <div class="bg-brand-salmon dark:bg-[#0F172A] text-brand-green dark:text-[#F97316] font-bold text-xs md:text-sm text-center py-4 px-2 rounded-xl flex items-center justify-center hover:bg-[#E8D4BE] dark:hover:bg-gray-800 transition-colors cursor-pointer border dark:border-gray-700">
                             <p>Projeto Urerê</p>
                         </div>
                         
@@ -260,15 +357,15 @@
 
     </section>
     <!--Scroll 5-->
-    <section class="bg-[#F8F9FA] flex flex-col items-center justify-start py-12 px-4 w-full gap-2">
+    <section class="bg-[#F8F9FA] dark:bg-[#0F172A] flex flex-col items-center justify-start py-12 px-4 w-full gap-2 transition-colors duration-300">
         <div class="flex flex-col justify-center items-center gap-4 max-w-2xl mb-12">
-            <h5 class="text-brand-green font-bold text-2xl md:text-3xl text-center">Histórias de Transformação</h5>
-            <p class="text-gray-500 text-center text-sm md:text-lg leading-relaxed">
+            <h5 class="text-brand-green dark:text-[#F97316] font-bold text-2xl md:text-3xl text-center">Histórias de Transformação</h5>
+            <p class="text-gray-500 dark:text-gray-400 text-center text-sm md:text-lg leading-relaxed">
                 Conheça histórias reais de crianças e comunidades que tiveram suas vidas transformadas através da educação.
             </p>
         </div>
             
-            <div class="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden bg-[#F5E6D3] shadow-md">
+            <div class="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden bg-[#F5E6D3] dark:bg-[#1E293B] shadow-md border dark:border-gray-700">
                 
                 <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out w-full">
                     
@@ -294,25 +391,25 @@
 
                 </div>
 
-                <button id="prev-btn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-all z-10 hidden md:flex items-center justify-center">
+                <button id="prev-btn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/90 dark:bg-[#0F172A]/80 hover:bg-white dark:hover:bg-[#F97316] text-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all z-10 hidden md:flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
                 </button>
                 
-                <button id="next-btn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-md transition-all z-10 hidden md:flex items-center justify-center">
+                <button id="next-btn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/90 dark:bg-[#0F172A]/80 hover:bg-white dark:hover:bg-[#F97316] text-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all z-10 hidden md:flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </button>
 
-                <div class="w-full bg-[#F5E6D3] py-4 flex justify-center items-center gap-2">
-                    <button class="dot w-8 h-2.5 rounded-full bg-brand-green transition-all" data-index="0"></button>
-                    <button class="dot w-2.5 h-2.5 rounded-full bg-gray-300 transition-all" data-index="1"></button>
+                <div class="w-full bg-[#F5E6D3] dark:bg-[#1E293B] py-4 flex justify-center items-center gap-2">
+                    <button class="dot w-8 h-2.5 rounded-full bg-brand-green dark:bg-[#F97316] transition-all" data-index="0"></button>
+                    <button class="dot w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition-all" data-index="1"></button>
                 </div>
             </div>
 
-            <button id="autoplay-btn" class="mt-8 flex items-center justify-center gap-2 border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-6 py-2 rounded-lg font-bold transition-colors">
+            <button id="autoplay-btn" class="mt-8 flex items-center justify-center gap-2 border-2 border-brand-green dark:border-[#F97316] text-brand-green dark:text-[#F97316] hover:bg-brand-green dark:hover:bg-[#F97316] hover:text-white px-6 py-2 rounded-lg font-bold transition-colors">
                 
                 <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                     <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
@@ -326,11 +423,11 @@
             </button>
     </section>
     <!--Scroll 6-->
-    <section class="bg-[#F8F9FA] flex flex-col items-center justify-start py-22 px-4 w-full gap-2">
+    <section id="ajudar" class="bg-[#F8F9FA] dark:bg-[#0F172A] flex flex-col items-center justify-start py-22 px-4 w-full gap-2 transition-colors duration-300">
 
         <div class="flex flex-col justify-center items-center gap-4 max-w-2xl mb-12">
-            <h5 class="text-brand-green font-bold text-2xl md:text-3xl text-center">Seja Parte da Transformação</h5>
-            <p class="text-gray-500 text-center text-sm md:text-lg leading-relaxed">
+            <h5 class="text-brand-green dark:text-[#F97316] font-bold text-2xl md:text-3xl text-center">Seja Parte da Transformação</h5>
+            <p class="text-gray-500 dark:text-gray-400 text-center text-sm md:text-lg leading-relaxed">
                 Existem várias formas de se envolver e contribuir para a transformação da educação brasileira. 
                 Escolha a que melhor se adequa a você.
             </p>
@@ -338,77 +435,77 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mx-auto p-4">
     
-        <div class="flex flex-col p-6 bg-brand-white gap-4 rounded-2xl border-2 border-brand-orange shadow-brand-orange transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
-            <div class="bg-brand-orange p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
+        <div class="flex flex-col p-6 bg-brand-white dark:bg-[#1E293B] gap-4 rounded-2xl border-2 border-brand-orange dark:border-[#F97316] shadow-brand-orange transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
+            <div class="bg-brand-orange dark:bg-[#F97316] p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Contribuir Financeiramente:</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Contribuir Financeiramente:</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         Sua doação ajuda a financiar infraestrutura, bolsas de estudos e programas educacionais.
                     </p>
                 </div>
-                <a href="#" class="mt-auto bg-brand-orange text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
+                <a href="#" class="mt-auto bg-brand-orange dark:bg-[#F97316] text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
                     Faça Uma Doação
                 </a>
             </div>
 
-            <div class="flex flex-col p-6 bg-brand-white gap-4 rounded-2xl border-2 border-brand-yellow shadow-brand-yellow transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
-                <div class="bg-brand-yellow p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
+            <div class="flex flex-col p-6 bg-brand-white dark:bg-[#1E293B] gap-4 rounded-2xl border-2 border-brand-yellow dark:border-[#F97316] shadow-brand-yellow transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
+                <div class="bg-brand-yellow dark:bg-[#F97316] p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Ser Voluntário:</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Ser Voluntário:</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         Compartilhe o seu conhecimento e tempo com crianças e comunidades que precisam.
                     </p>
                 </div>
-                <a href="#" class="mt-auto bg-brand-yellow text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
+                <a href="#" class="mt-auto bg-brand-yellow dark:bg-[#F97316] text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
                     Seja Voluntário
                 </a>
             </div>
 
-            <div class="flex flex-col p-6 bg-brand-white gap-4 rounded-2xl border-2 border-brand-green shadow-brand-green transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
-                <div class="bg-brand-green p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
+            <div class="flex flex-col p-6 bg-brand-white dark:bg-[#1E293B] gap-4 rounded-2xl border-2 border-brand-green dark:border-[#F97316] shadow-brand-green transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
+                <div class="bg-brand-green dark:bg-[#F97316] p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0-10.628a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Zm0 10.628a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Compartilhamento:</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Compartilhamento:</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         Compartilhe esta causa nas suas redes, divulgando e pressionando por políticas públicas.
                     </p>
                 </div>
-                <a href="#" class="mt-auto bg-brand-green text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
+                <a href="#" class="mt-auto bg-brand-green dark:bg-[#F97316] text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
                     Compartilhar Causa
                 </a>
             </div>
 
-            <div class="flex flex-col p-6 bg-brand-white gap-4 rounded-2xl border-2 border-brand-purple shadow-brand-purple transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
-                <div class="bg-brand-purple p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
+            <div class="flex flex-col p-6 bg-brand-white dark:bg-[#1E293B] gap-4 rounded-2xl border-2 border-brand-purple dark:border-[#F97316] shadow-brand-purple transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
+                <div class="bg-brand-purple dark:bg-[#F97316] p-2 flex justify-center items-center rounded-xl w-14 h-14 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h5 class="font-bold text-brand-blue text-xl">Educação Continuada:</h5>
-                    <p class="font-light text-gray-600 text-sm leading-relaxed">
+                    <h5 class="font-bold text-brand-blue dark:text-white text-xl">Educação Continuada:</h5>
+                    <p class="font-light text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                         Mantenha-se informado sobre a educação no Brasil por meio dos nossos relatórios e publicações.
                     </p>
                 </div>
-                <a href="#" class="mt-auto bg-brand-purple text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
+                <a href="#" class="mt-auto bg-brand-purple dark:bg-[#F97316] text-white text-center py-3 rounded-xl font-bold hover:brightness-110 transition-all">
                     Receber Newsletter
                 </a>
             </div>        
         </div>
 
-        <div class="w-full max-w-6xl mx-auto mt-12 mb-10">
-            <div class="bg-gradient-to-r from-[#105141] to-[#022c43] p-10 md:p-16 rounded-3xl flex flex-col items-center text-center gap-8 shadow-xl">
+        <div class="w-full max-w-6xl mx-auto mt-12 mb-10 px-4">
+            <div class="bg-gradient-to-r from-[#105141] to-[#022c43] dark:from-[#0F172A] dark:to-[#1E293B] p-10 md:p-16 rounded-3xl flex flex-col items-center text-center gap-8 shadow-xl border dark:border-gray-700">
                 
                 <h2 class="text-3xl md:text-4xl font-bold text-white">
                     Juntos Somos Mais Fortes
@@ -417,7 +514,7 @@
                     Cada ação conta. Seja uma doação, um compartilhamento, um voto ou uma conversa com alguém próximo – 
                     você está ajudando a construir um Brasil onde toda criança tem acesso a educação de qualidade.
                 </p>
-                <a href="#" class="bg-[#f2c233] hover:bg-[#e5b62d] text-[#022c43] font-bold py-4 px-12 md:px-24 rounded-lg transition-colors text-lg uppercase tracking-wider">
+                <a href="#" class="bg-[#f2c233] dark:bg-[#F97316] hover:bg-[#e5b62d] dark:hover:bg-orange-500 text-[#022c43] dark:text-white font-bold py-4 px-12 md:px-24 rounded-lg transition-colors text-lg uppercase tracking-wider">
                     Comece Agora
                 </a>
                 
@@ -426,40 +523,40 @@
 
     </section>
     <!--Scroll 7-->
-   <section class="bg-[#F5E6D3] flex flex-col items-center justify-center py-20 px-4 w-full">
+   <section id="contato" class="bg-[#F5E6D3] dark:bg-[#0F172A] flex flex-col items-center justify-center py-20 px-4 w-full transition-colors duration-300">
         
         <div class="flex flex-col justify-center items-center gap-3 max-w-2xl mb-12 text-center">
-            <h2 class="text-brand-green font-bold text-3xl md:text-4xl">Fique Conectado</h2>
-            <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+            <h2 class="text-brand-green dark:text-[#F97316] font-bold text-3xl md:text-4xl">Fique Conectado</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
                 Inscreva-se para receber atualizações da campanha, histórias de impacto e oportunidades de se envolver.
             </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 w-full max-w-5xl mx-auto">
             
-            <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="text-brand-blue font-bold text-xl mb-6">Envie uma mensagem:</h3>
+            <div class="lg:col-span-3 bg-white dark:bg-[#1E293B] p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 class="text-brand-blue dark:text-white font-bold text-xl mb-6">Envie uma mensagem:</h3>
                 
                 <form id="contact-form" novalidate action="https://formsubmit.co/educabrasil000@gmail.com" method="POST" class="flex flex-col gap-4">
                     <div class="flex flex-col gap-1">
-                        <label class="font-bold text-brand-blue text-xs">Nome completo:</label>
-                        <input type="text" name="name" required class="input-field w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-brand-green">
+                        <label class="font-bold text-brand-blue dark:text-gray-300 text-xs">Nome completo:</label>
+                        <input type="text" name="name" required class="input-field w-full border border-gray-300 dark:border-gray-600 dark:bg-[#0F172A] dark:text-white rounded-lg px-4 py-2.5 text-sm outline-none focus:border-brand-green dark:focus:border-[#F97316]">
                         <span class="error-msg hidden text-red-500 text-[10px] font-bold uppercase">Preencha este campo</span>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <label class="font-bold text-brand-blue text-xs">Email:</label>
-                        <input type="email" name="email" required class="input-field w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-brand-green">
+                        <label class="font-bold text-brand-blue dark:text-gray-300 text-xs">Email:</label>
+                        <input type="email" name="email" required class="input-field w-full border border-gray-300 dark:border-gray-600 dark:bg-[#0F172A] dark:text-white rounded-lg px-4 py-2.5 text-sm outline-none focus:border-brand-green dark:focus:border-[#F97316]">
                         <span class="error-msg hidden text-red-500 text-[10px] font-bold uppercase">E-mail inválido</span>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <label class="font-bold text-brand-blue text-xs">Mensagem:</label>
-                        <textarea name="message" required class="input-field w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-brand-green resize-none" rows="4"></textarea>
+                        <label class="font-bold text-brand-blue dark:text-gray-300 text-xs">Mensagem:</label>
+                        <textarea name="message" required class="input-field w-full border border-gray-300 dark:border-gray-600 dark:bg-[#0F172A] dark:text-white rounded-lg px-4 py-2.5 text-sm outline-none focus:border-brand-green dark:focus:border-[#F97316] resize-none" rows="4"></textarea>
                         <span class="error-msg hidden text-red-500 text-[10px] font-bold uppercase">Escreva sua mensagem</span>
                     </div>
 
-                    <button type="submit" class="mt-2 w-full bg-brand-green text-white text-sm font-bold py-3.5 rounded-lg hover:opacity-90">
+                    <button type="submit" class="mt-2 w-full bg-brand-green dark:bg-[#F97316] text-white text-sm font-bold py-3.5 rounded-lg hover:opacity-90 transition-all">
                         Enviar Mensagem
                     </button>
                 </form>
@@ -467,63 +564,61 @@
 
             <div class="lg:col-span-2 flex flex-col gap-6">
                 
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-center flex-grow">
-                    <h3 class="text-brand-blue font-bold text-xl mb-6">Informações de contato</h3>
+                <div class="bg-white dark:bg-[#1E293B] p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col justify-center flex-grow">
+                    <h3 class="text-brand-blue dark:text-white font-bold text-xl mb-6">Informações de contato</h3>
                     
                     <div class="flex flex-col gap-5">
                         
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-brand-orange rounded-xl flex-shrink-0 flex items-center justify-center shadow-sm">
+                            <div class="w-12 h-12 bg-brand-orange dark:bg-[#F97316] rounded-xl flex-shrink-0 flex items-center justify-center shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                 </svg>
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-brand-blue font-bold text-[11px] uppercase tracking-wide">Email:</span>
-                                <span class="text-brand-green text-xs font-medium">educabrasil000@gmail.com</span>
+                                <span class="text-brand-blue dark:text-gray-400 font-bold text-[11px] uppercase tracking-wide">Email:</span>
+                                <span class="text-brand-green dark:text-[#F97316] text-xs font-medium">educabrasil000@gmail.com</span>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-brand-orange rounded-xl flex-shrink-0 flex items-center justify-center shadow-sm">
+                            <div class="w-12 h-12 bg-brand-orange dark:bg-[#F97316] rounded-xl flex-shrink-0 flex items-center justify-center shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.48-4.18-7.076-7.076l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                 </svg>
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-brand-blue font-bold text-[11px] uppercase tracking-wide">Telefone:</span>
-                                <span class="text-brand-green text-xs font-medium">(11) 9999-9999</span>
+                                <span class="text-brand-blue dark:text-gray-400 font-bold text-[11px] uppercase tracking-wide">Telefone:</span>
+                                <span class="text-brand-green dark:text-[#F97316] text-xs font-medium">(11) 9999-9999</span>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-brand-orange rounded-xl flex-shrink-0 flex items-center justify-center shadow-sm">
+                            <div class="w-12 h-12 bg-brand-orange dark:bg-[#F97316] rounded-xl flex-shrink-0 flex items-center justify-center shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                                 </svg>
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-brand-blue font-bold text-[11px] uppercase tracking-wide">Localização:</span>
-                                <span class="text-brand-green text-xs font-medium">São Paulo, SP</span>
+                                <span class="text-brand-blue dark:text-gray-400 font-bold text-[11px] uppercase tracking-wide">Localização:</span>
+                                <span class="text-brand-green dark:text-[#F97316] text-xs font-medium">São Paulo, SP</span>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-center h-fit">
-                    <h3 class="text-brand-blue font-bold text-xl mb-6">Siga-nos</h3>
+                <div class="bg-white dark:bg-[#1E293B] p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col justify-center h-fit">
+                    <h3 class="text-brand-blue dark:text-white font-bold text-xl mb-6">Siga-nos</h3>
                     
                     <div class="flex flex-wrap gap-3">
-                        <a href="#" class="w-12 h-12 bg-brand-orange rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center">
+                        <a href="#" class="w-12 h-12 bg-brand-orange dark:bg-[#F97316] rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center text-white">
                             </a>
-                        <a href="#" class="w-12 h-12 bg-brand-orange rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center">
-                            </a>
-                        <a href="#" class="w-12 h-12 bg-brand-orange rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center">
-                            </a>
-                        <a href="#" class="w-12 h-12 bg-brand-orange rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center">
-                            </a>
+                        <a href="#" class="w-12 h-12 bg-brand-orange dark:bg-[#F97316] rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center text-white">
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-brand-orange dark:bg-[#F97316] rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-md transition-all flex items-center justify-center text-white">
+                        </a>
                     </div>
                 </div>
 
@@ -532,51 +627,53 @@
         </div>
    </section>
    <!--Footer-->
-    <footer class="bg-brand-blue w-full pt-16 pb-8 px-6 md:px-12 text-white">
+    <footer class="bg-brand-blue dark:bg-[#0F172A] w-full pt-16 pb-8 px-6 md:px-12 text-white border-t dark:border-gray-800 transition-colors duration-300">
         
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
             
             <div class="flex flex-col gap-4 md:col-span-1">
-                <h4 class="font-bold text-lg">Educação Para Todos</h4>
+                <h4 class="font-bold text-lg dark:text-[#F97316]">Educação Para Todos</h4>
                 <p class="text-sm text-gray-300 font-light leading-relaxed">
                     Uma campanha solidária pela educação de qualidade, equidade e acesso para todas as crianças e adolescentes brasileiros.
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <h4 class="font-bold text-lg">Links Rápidos</h4>
+                <h4 class="font-bold text-lg dark:text-white">Links Rápidos</h4>
                 <ul class="flex flex-col gap-3 text-sm text-gray-300 font-light">
-                    <li><a href="#" class="hover:text-white transition-colors">O problema</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Por que importa</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">ONGs</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Como ajudar</a></li>
+                    <li><a href="#problema" class="hover:text-white dark:hover:text-[#F97316] transition-colors">O problema</a></li>
+                    <li><a href="#importa" class="hover:text-white dark:hover:text-[#F97316] transition-colors">O que importa</a></li>
+                    <li><a href="#ongs" class="hover:text-white dark:hover:text-[#F97316] transition-colors">ONGs</a></li>
+                    <li><a href="#ajudar" class="hover:text-white dark:hover:text-[#F97316] transition-colors">Como ajudar</a></li>
                 </ul>
             </div>
 
             <div class="flex flex-col gap-4">
-                <h4 class="font-bold text-lg">Legal</h4>
+                <h4 class="font-bold text-lg dark:text-white">Legal</h4>
                 <ul class="flex flex-col gap-3 text-sm text-gray-300 font-light">
-                    <li><a href="#" class="hover:text-white transition-colors">Privacidade</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Termos de uso</a></li>
-                    <li><a href="#" class="hover:text-white transition-colors">Transparência</a></li>
+                    <li><a href="#" class="hover:text-white dark:hover:text-[#F97316] transition-colors">Privacidade</a></li>
+                    <li><a href="#" class="hover:text-white dark:hover:text-[#F97316] transition-colors">Termos de uso</a></li>
+                    <li><a href="#" class="hover:text-white dark:hover:text-[#F97316] transition-colors">Transparência</a></li>
                 </ul>
             </div>
 
-            <form action="#" method="POST" class="w-full flex gap-2">
-    
-                <input type="email" name="email" placeholder="Seu email" required
-                    class="w-full bg-gray-200 text-gray-800 text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-green">
-                
-                <button type="submit" class="bg-brand-green hover:opacity-90 text-white font-bold px-4 py-2 rounded-md transition-all">
-                    Assinar
-                </button>
-            </form>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-lg dark:text-white">Newsletter</h4>
+                <form action="#" method="POST" class="w-full flex gap-2">
+                    <input type="email" name="email" placeholder="Seu email" required
+                        class="w-full bg-gray-200 dark:bg-[#1E293B] dark:text-white text-gray-800 text-sm px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-green dark:focus:ring-[#F97316]">
+                    
+                    <button type="submit" class="bg-brand-green dark:bg-[#F97316] hover:opacity-90 text-white font-bold px-4 py-2 rounded-md transition-all">
+                        Assinar
+                    </button>
+                </form>
+            </div>
 
         </div>
 
-        <hr class="border-gray-500 max-w-6xl mx-auto mb-8 opacity-50">
+        <hr class="border-gray-500 dark:border-gray-700 max-w-6xl mx-auto mb-8 opacity-50">
 
-        <div class="max-w-6xl mx-auto text-center md:text-center text-sm text-gray-300 font-light">
+        <div class="max-w-6xl mx-auto text-center text-sm text-gray-300 font-light">
             <p>2026 Educação para todos - Brasil. Desenvolvido por Cauã Sampaio, para a educação brasileira</p>
         </div>
 
