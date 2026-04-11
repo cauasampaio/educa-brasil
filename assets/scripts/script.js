@@ -115,4 +115,29 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.addEventListener('click', () => updateCarousel(i));
         });
     }
+
+    const copyBtn = document.getElementById('copy-link-btn');
+    const copyMsg = document.getElementById('copy-message');
+
+    if (copyBtn && copyMsg) {
+        copyBtn.addEventListener('click', () => {
+            // Pega o link atual do site
+            const siteUrl = window.location.href;
+
+            // Copia para a área de transferência
+            navigator.clipboard.writeText(siteUrl).then(() => {
+                // Mostra a mensagem (tira o opacity-0)
+                copyMsg.classList.remove('opacity-0');
+                copyMsg.classList.add('opacity-100');
+
+                // Esconde de novo depois de 2 segundos
+                setTimeout(() => {
+                    copyMsg.classList.remove('opacity-100');
+                    copyMsg.classList.add('opacity-0');
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+            });
+        });
+    }
 });
