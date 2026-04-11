@@ -140,4 +140,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    const header = document.querySelector('header');
+    const brandName = document.getElementById('brand-name');
+    // Seleciona os links do menu desktop para eles não sumirem também
+    const navLinks = document.querySelectorAll('nav ul li a:not(.bg-brand-green)'); 
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('bg-brand-white', 'dark:bg-[#0F172A]', 'shadow-md');
+            header.classList.remove('bg-transparent');
+            
+            // Cores padrão quando o menu tem fundo
+            brandName.classList.add('text-brand-blue');
+            brandName.classList.remove('text-white');
+            menuBtn.classList.add('text-brand-blue');
+            menuBtn.classList.remove('text-white');
+        } else {
+            header.classList.add('bg-transparent');
+            header.classList.remove('bg-brand-white', 'dark:bg-[#0F172A]', 'shadow-md');
+            
+            // Cores quando o menu está transparente (forçamos branco para destacar na imagem)
+            brandName.classList.remove('text-brand-blue');
+            brandName.classList.add('text-white');
+            menuBtn.classList.remove('text-brand-blue');
+            menuBtn.classList.add('text-white');
+        }
+    });
+
 });
