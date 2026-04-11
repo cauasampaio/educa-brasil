@@ -4,45 +4,52 @@
     background-position: center;  
     background-repeat: no-repeat; 
     background-color: transparent;
+    transition: background-image 0.3s ease;
 }
+
 .dark .bg-scroll-1 {
-    background-blend-mode: multiply; 
-    background-color: #1a1a1a; 
     background-image: url('../images/bg-image-mobile.png');
-}
-.dark .bg-scroll-1 {
-    background-color: rgba(15, 23, 42, 0.4); 
+    background-color: rgba(15, 23, 42, 0.6);
     background-blend-mode: overlay;
 }
+
 @media (min-width: 768px) {
     .bg-scroll-1 {
         background-image: url('../images/bg-image-desktop.png');
     }
+
     .dark .bg-scroll-1 {
         background-image: url('../images/bg-image-desktop.png');
     }
 }
+
 ::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
+
 ::-webkit-scrollbar-thumb {
     background: #DF6836;
     border-radius: 10px;
     border: 2px solid #f1f1f1;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #c5572b; 
 }
+
 .dark ::-webkit-scrollbar-track {
     background: #1e293b; 
 }
+
 .dark ::-webkit-scrollbar-thumb {
     background: #7B2CBF; 
     border: 2px solid #1e293b;
 }
+
 .corte-diagonal {
     clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 100%);
 }
