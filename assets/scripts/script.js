@@ -174,45 +174,53 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
     // --- Validação do Formulário de Contato ---
-    const contatoForm = document.querySelector('form'); // Seleciona o formulário
+    const contatoForm = document.getElementById('contact-form');
 
     if (contatoForm) {
         contatoForm.addEventListener('submit', (e) => {
-            // Captura os campos (ajuste os IDs se forem diferentes no seu HTML)
-            const nome = contatoForm.querySelector('input[type="text"]');
-            const email = contatoForm.querySelector('input[type="email"]');
-            const mensagem = contatoForm.querySelector('textarea');
-            
-            let erro = false;
+            let temErro = false;
 
-            // Validação simples: campo vazio
-            [nome, email, mensagem].forEach(campo => {
+            // Seleciona todos os campos que têm a classe 'input-field'
+            const campos = contatoForm.querySelectorAll('.input-field');
+
+            campos.forEach(campo => {
+                // O span de erro está logo após o input (nextElementSibling)
+                const mensagemErro = campo.nextElementSibling;
+                
+                // Validação de campo vazio
                 if (!campo.value.trim()) {
-                    campo.classList.add('border-red-500'); // Dá um feedback visual de erro
-                    erro = true;
+                    campo.classList.add('border-red-500');
+                    mensagemErro?.classList.remove('hidden'); // Mostra o erro
+                    temErro = true;
                 } else {
+                    // Validação específica para o campo de email
+                    if (campo.type === 'email') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(campo.value)) {
+                            campo.classList.add('border-red-500');
+                            mensagemErro.innerText = "E-mail inválido"; // Ajusta o texto se necessário
+                            mensagemErro?.classList.remove('hidden');
+                            temErro = true;
+                            return;
+                        }
+                    }
+                    
+                    // Se estiver tudo certo, limpa o erro
                     campo.classList.remove('border-red-500');
+                    mensagemErro?.classList.add('hidden'); // Esconde o erro
                 }
             });
 
-            // Validação de Email básica
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email.value && !emailRegex.test(email.value)) {
-                alert('Por favor, insira um e-mail válido.');
-                email.classList.add('border-red-500');
-                erro = true; 
-            }
-
-            if (erro) {
-                e.preventDefault(); // Impede o envio se houver erro
-                alert('Preencha todos os campos corretamente antes de enviar.');
+            if (temErro) {
+                e.preventDefault(); // Impede o envio
             } else {
-                // Se tudo estiver certo, você pode processar o envio aqui
-                // e.preventDefault(); // Tire o comentário se for usar AJAX/API
-                console.log('Formulário pronto para envio!');
+                alert('Mensagem enviada com sucesso!');
+                // contatoForm.reset(); // Opcional: limpa o form após enviar
             }
         });
     }
+    
 
 });
