@@ -174,5 +174,45 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+    // --- Validação do Formulário de Contato ---
+    const contatoForm = document.querySelector('form'); // Seleciona o formulário
+
+    if (contatoForm) {
+        contatoForm.addEventListener('submit', (e) => {
+            // Captura os campos (ajuste os IDs se forem diferentes no seu HTML)
+            const nome = contatoForm.querySelector('input[type="text"]');
+            const email = contatoForm.querySelector('input[type="email"]');
+            const mensagem = contatoForm.querySelector('textarea');
+            
+            let erro = false;
+
+            // Validação simples: campo vazio
+            [nome, email, mensagem].forEach(campo => {
+                if (!campo.value.trim()) {
+                    campo.classList.add('border-red-500'); // Dá um feedback visual de erro
+                    erro = true;
+                } else {
+                    campo.classList.remove('border-red-500');
+                }
+            });
+
+            // Validação de Email básica
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailRegex.test(email.value)) {
+                alert('Por favor, insira um e-mail válido.');
+                email.classList.add('border-red-500');
+                erro = true; 
+            }
+
+            if (erro) {
+                e.preventDefault(); // Impede o envio se houver erro
+                alert('Preencha todos os campos corretamente antes de enviar.');
+            } else {
+                // Se tudo estiver certo, você pode processar o envio aqui
+                // e.preventDefault(); // Tire o comentário se for usar AJAX/API
+                console.log('Formulário pronto para envio!');
+            }
+        });
+    }
 
 });
