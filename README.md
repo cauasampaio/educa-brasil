@@ -55,6 +55,11 @@ A escolha foi estratégica para transmitir confiança, esperança e seriedade:
 
 ---
 
+## Figma da aplicação web
+* *https://www.figma.com/design/4RqHTTuLmGinD3ZYdnLlE2/Educa%C3%A7%C3%A3o-para-todos?node-id=0-1&t=JRhvDoO7urJkBtcG-1*
+
+.
+
 > *"Educação não transforma o mundo. Educação muda as pessoas. Pessoas transformam o mundo."* — **Paulo Freire**
 
 ---
