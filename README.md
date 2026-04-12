@@ -18,7 +18,7 @@ Falar de educação no Brasil é encarar um dos nossos maiores problemas que a p
 * **Desigualdade de Proficiência:** Apenas **10% da população** brasileira é considerada proficiente em leitura e matemática avançada.
 
 ### ⚠️ Como isso nos afeta?
-A falta de uma base educacional sólida gera um impacto direto na economia. Estimativas mostram que o Brasil perde bilhões em PIB anualmente devido à baixa escolaridade. Além disso, a desigualdade educacional reforça a vulnerabilidade social, uma vez que a educação ainda é o caminho mais direto para a ascensão social.
+### A falta de uma base educacional sólida gera um impacto direto na economia. Estimativas mostram que o Brasil perde bilhões em PIB anualmente devido à baixa escolaridade. Além disso, a desigualdade educacional reforça a vulnerabilidade social, uma vez que a educação ainda é o caminho mais direto para a ascensão social.
 ---
 
 ## 💡 A Iniciativa Educa Brasil
